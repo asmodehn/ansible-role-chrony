@@ -15,7 +15,6 @@ Available variables are listed below, along with default values:
     chrony_bindcmdaddress: [ '127.0.0.1', '::1' ]
     chrony_commandkey: 1
     chrony_driftfile: /var/lib/chrony/drift
-    chrony_eneratecommandkey: True
     chrony_generatecommandkey: True
     chrony_keyfile: /etc/chrony.keys
     chrony_logchange: 0.5
