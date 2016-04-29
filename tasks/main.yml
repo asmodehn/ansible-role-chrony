@@ -1,0 +1,27 @@
+---
+- name: yum | chrony
+  tags: chrony
+  yum:
+    name=chrony
+    state=latest
+    update_cache=yes
+  register: chrony_yum
+
+- block:
+    - name: template | chrony.conf
+      template:
+        src=chrony.conf.j2
+        dest=/etc/chrony.conf
+        owner=root
+        group=root
+        mode=0644
+      notify:
+        - service | chronyd | restarted
+    - name: service | chronyd
+      service:
+        name=chronyd
+        enabled=yes
+        state=started
+  tags: chrony
+  when: chrony_yum|success
+
