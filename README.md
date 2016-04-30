@@ -37,7 +37,7 @@ None
 
     - hosts: servers
       roles:
-         - role: tkimball83.chrony
+        - role: tkimball83.chrony
 
 ## License
 
